@@ -8,6 +8,8 @@ var niceMessage = ["You are nice", "You are superb", "You can do anything"];
 
 var meanMessage = ["You suck", "You're mean", "Get lost"];
 
+
+//handles the request and sends the messages to the webpage
 function handleRequestOne (request, response) {
 	var random = Math.floor(Math.random()*niceMessage.length);
 
@@ -19,6 +21,8 @@ function handleRequestTwo (request, response){
 	response.end("Server Two works\n" + meanMessage[random]);
 }
 
+
+//code for developers in the command line to know the servers are running 
 var serverOne = http.createServer(handleRequestOne); 
 
 serverOne.listen(PORTONE, function(){
