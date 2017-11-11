@@ -1,8 +1,8 @@
 var http = require("http");
 
-var PORTONE = 7000; 
+var PORTNICE = 7000; 
 
-var PORTTWO = 7500; 
+var PORTMEAN = 7500; 
 
 var niceMessage = ["You are nice", "You are superb", "You can do anything"];
 
@@ -10,27 +10,27 @@ var meanMessage = ["You suck", "You're mean", "Get lost"];
 
 
 //handles the request and sends the messages to the webpage
-function handleRequestOne (request, response) {
+function handleRequestNice (request, response) {
 	var random = Math.floor(Math.random()*niceMessage.length);
 
 	response.end("Server one works\n" + niceMessage[random]);
 }
 
-function handleRequestTwo (request, response){
+function handleRequestMean (request, response){
 	var random = Math.floor(Math.random()*niceMessage.length);
 	response.end("Server Two works\n" + meanMessage[random]);
 }
 
 
 //code for developers in the command line to know the servers are running 
-var serverOne = http.createServer(handleRequestOne); 
+var serverNice = http.createServer(handleRequestNice); 
 
-serverOne.listen(PORTONE, function(){
+serverNice.listen(PORTNICE, function(){
 	console.log("server one is on");
 })
 
-var serverTwo = http.createServer(handleRequestTwo); 
+var serverMean = http.createServer(handleRequestMean); 
 
-serverTwo.listen(PORTTWO, function(){
+serverMean.listen(PORTMEAN, function(){
 	console.log("server two is on");
 })
